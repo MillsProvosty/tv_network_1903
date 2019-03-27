@@ -20,4 +20,16 @@ class Network
     end
     salary.actor
   end
+
+  def payroll
+    final_payroll = Hash.new
+    characters = @shows.map do |show|
+      show.characters
+    end.flatten
+
+    characters.each do |char|
+      final_payroll[char.actor] = char.salary
+    end
+    final_payroll
+  end
 end
